@@ -1,0 +1,57 @@
+/* Colors
+  -------------------------- */
+$color-primary: #31c27c;
+$color-secondary: #ffb752;
+$color-secondary-light: #fff6e4;
+$color-base-gray: #ccc;
+$color-base-red: red;
+
+/* Border
+  -------------------------- */
+$border-color-base: #ccc;
+$border-color-hover: #a7a7a8;
+$border-radius: 4px;
+$border-table-color: #dedede;
+$border-dialog-color: #e5e5e5;
+
+/* background
+  -------------------------- */
+$bg-color-gray: #e6e6e6;
+$bg-color-table-header: #f0f0f0;
+
+/* Font
+  -------------------------- */
+$font-size-base: 12px;
+$font-size-normal: 14px;
+$font-size-large: 16px;
+$font-color-base: #333;
+$font-color-label: #666;
+$font-color-disabled-base: #bbb;
+
+/* Link
+  -------------------------- */
+$link-color: #0088CC;
+$link-hover-color: #0088CC;
+
+/* Button
+  -------------------------- */
+$button-base-color: #fff;
+
+//默认按钮
+$button-default-bg: $button-base-color #e6e6e7;
+$button-default-border: $border-color-base $border-color-base;
+$button-default-color: $font-color-base $font-color-base;
+
+//辅助按钮（一般用于dropdown的splitbutton）
+$button-assist-bg: $border-color-base;
+$button-assist-border: $border-color-base;
+$button-assist-color: $button-base-color;
+
+//主要按钮
+$button-primary-bg: #31c37c #2fb876;
+$button-primary-border: #31c37c #2fb876;
+$button-primary-color: $button-base-color $button-base-color;
+
+/* Form
+  -------------------------- */
+$input-default-width: 130px;

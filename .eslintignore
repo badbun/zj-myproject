@@ -1,0 +1,7 @@
+build/*.js
+config/*.js
+mock/*.js
+../node_modules/*.js
+node_modules/*.js
+dist/*.js
+src/components/userGuide/components/ckplayer/*
