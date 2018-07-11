@@ -7,16 +7,16 @@
 
 <script>
 export default {
-    methods: {
-        startHacking() {
-            this.$notify({
-                title: 'It works!',
-                type: 'success',
-                message: '哎哟，成功啦！',
-                duration: 5000,
-            });
-        },
+  methods: {
+    startHacking() {
+      this.$notify({
+        title: 'It works!',
+        type: 'success',
+        message: '哎哟，成功啦！',
+        duration: 5000,
+      });
     },
+  },
 };
 </script>
 <style lang="scss">

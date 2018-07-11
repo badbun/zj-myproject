@@ -11,9 +11,9 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 new Vue({
-    router,
-    http,
-    beforeCreate() {
-        this.$http.scope = this;
-    },
+  router,
+  http,
+  beforeCreate() {
+    this.$http.scope = this;
+  },
 }).$mount('#app');

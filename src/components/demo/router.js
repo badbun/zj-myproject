@@ -14,13 +14,13 @@ const main = resolve => (require(['./test.vue'], resolve));
  *
  */
 const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            component: main,
-        },
-    ],
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      component: main,
+    },
+  ],
 });
 
 export default router;
