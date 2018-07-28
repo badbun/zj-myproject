@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js demo --profile",
-    "build-learning": "node build/build.js demo",
+    "build": "node build/build.js demo",
     "mock": "node mock/server.js"
   },
   "dependencies": {
