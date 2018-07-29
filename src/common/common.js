@@ -29,46 +29,6 @@ Date.prototype.toJSON = function () {
 };
 
 /**
- * 获取当前月第一天
- * @returns {Date}
- */
-Date.prototype.getFirstDayOfMonth = function () {
-  this.setDate(1);
-  return this;
-};
-
-/**
- * 获取上个月第一天
- * @returns {Date}
- */
-Date.prototype.getFirstDayOfPreMonth = function () {
-  this.setDate(1);
-  this.setMonth(this.getMonth() - 1);
-  return this;
-};
-
-/**
- * 获取上个月最后一天
- * @returns {Date}
- */
-Date.prototype.getLastDayOfPreMonth = function () {
-  this.setDate(0);
-  return this;
-};
-
-
-/**
- * 获取当前月最后一天
- * @return {Date}
- */
-Date.prototype.getLastDayOfMonth = function () {
-  this.setMonth(this.getMonth() + 1);
-  this.setDate(0);
-  return this;
-};
-
-
-/**
  * 数字转千分位金额
  * @param prefix 前缀，如¥
  * @param digit 小数位数，默认不处理，设置后根据值处理小数位数
@@ -90,60 +50,3 @@ String.prototype.toMoney = function (prefix = '', digit, emptyText = '') {
 
   return prefix + val;
 };
-
-const getValueByPath = function (obj, prop) {
-  prop = prop || '';
-  const paths = prop.split('.');
-  let result = Object.assign({}, obj);
-  if (!obj) {
-    return null;
-  }
-  paths.forEach(path => {
-    result = result[path];
-  });
-
-  return result;
-};
-
-/* eslint no-extend-native:off */
-Array.prototype.sortByOrder = function (sortField, sortOrder, sortMethod) {
-  if (!sortField) {
-    return this;
-  }
-
-  const order = sortOrder === 'descending' ? -1 : 1;
-
-  return this.slice().sort((a, b) => {
-    if (sortMethod) {
-      return sortMethod(a, b) ? order : -order;
-    }
-    if (sortField !== '$key') {
-      if (typeof a === 'object' && '$value' in a) a = a.$value;
-      if (typeof b === 'object' && '$value' in b) b = b.$value;
-    }
-    a = typeof a === 'object' ? getValueByPath(a, sortField) : a;
-    b = typeof b === 'object' ? getValueByPath(b, sortField) : b;
-
-    if (a == b) {
-      return 0;
-    }
-
-    if (a === '' || a === null) {
-      return -order;
-    }
-
-    if (b === '' || b === null) {
-      return order;
-    }
-
-    return a > b ? order : -order;
-  });
-};
-/**
- * 少于10补0
- * @param num
- * @returns {string}
- */
-export default function prefixZero(num) {
-  return num >= 10 ? num : `0${num}`;
-}

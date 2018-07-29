@@ -23,32 +23,23 @@ Axios.defaults.transformResponse = [data => {
       console.error(`parse error:${data}`);
     }
   }
-    // TODO interceptors支持中断后下列代码请移至interceptors中
-
   return jsonData;
 }];
-
-const ignoreUrls = ['/hawk/grab/servyoucommon.htm'];// 忽略异常处理的URL
-const isIgnoreUrls = url => ignoreUrls.some(ignoreUrl => url.indexOf(ignoreUrl) !== -1);
 
 const errorHandle = error => {
   const vm = this.a.scope;
   if (error.response) {
-    if (isIgnoreUrls(error.response.config.url)) {
-      return Promise.reject(error);
-    }
-
     let errorMsg = '';
     if (error.response.config.errorInfo) {
       errorMsg = error.response.config.errorInfo[error.response.status];
     }
     switch (error.response.status) {
       case 404:
-        errorMsg = errorMsg || '您访问的地址有误，或者该页面不存在哦～';
+        errorMsg = errorMsg || '您访问的地址有误～';
         vm.$error(errorMsg);
         break;
       default:
-        errorMsg = errorMsg || '网络好像有问题，请稍后重试哦～';
+        errorMsg = errorMsg || '网络好像有问题，请稍后重试～';
         vm.$error(errorMsg);
     }
     error.errorMsg = errorMsg;
@@ -69,17 +60,7 @@ const errorHandle = error => {
       error.errorMsg = error.message;
       console.error(error.message);
     }
-  } else if (error.returnCode === '80502501') { // 接口授权失败
-    const errorMsg = '获取授权失败了，请稍后重试哦～';
-    error.errorMsg = errorMsg;
-    vm.$error(errorMsg);
-  } /* else if (vm.$root.httpErrorInfo && vm.$root.httpErrorInfo[vm.$route.path]) {
-        const errorCode = error.returnCode || error.messageCode || error.data.messageCode;
-        let errorMsg = vm.$root.httpErrorInfo[vm.$route.path][errorCode || 'default'];
-        errorMsg = errorMsg || error.returnMessage || error.data.message || error.message;
-        vm.$error(errorMsg);
-        error.errorMsg = errorMsg;
-  } */ else {
+  } else {
     const errorMsg = error.data.returnMessage || error.data.message || error.message;
     error.errorMsg = errorMsg;
     vm.$error(errorMsg);

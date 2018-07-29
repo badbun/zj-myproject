@@ -3,6 +3,7 @@ import 'normalize.css';
 import Vue from 'vue';
 import router from './router.js';
 import '../../common/common.js';
+import 'common-elementUI/elementUI.config';
 import http from '../../common/http.js';
 import 'assets/style.scss';
 import ElementUI from 'element-ui';
