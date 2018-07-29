@@ -1,10 +1,12 @@
 # README SOL Project
 ``` bash
+# 安装node,版本大于6.x，具体安装百度一下教程有很多。
+# 安装完成后进入主目录，然后执行以下命令
+
 # 安装依赖
 npm install
 
-# 开发服务 localhost:9999
-
+# 启动服务
 npm run dev
 
 # 构建生产包
