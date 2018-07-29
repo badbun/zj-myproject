@@ -55,11 +55,11 @@ npm run build
 
 > ``` javascript
 > this.$http.post(url, {
-    errorInfo: {
-        '404': '页面不存在～',
-        'timeout': '超时了'
-    }
-})
+>    errorInfo: {
+>        '404': '页面不存在～',
+>        'timeout': '超时了'
+>    }
+> })
 > ```
 
 ### 消息框架：
